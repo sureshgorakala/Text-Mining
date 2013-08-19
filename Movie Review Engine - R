@@ -5,7 +5,8 @@ library(stringr)
 
 
 #get the tweets
-tweets = local(get(load('D:/SureshPersonal/Coursera/SentiAnalysis/Twitter/CE.RData')))
+#tweets = local(get(load('D:/SureshPersonal/Coursera/SentiAnalysis/Twitter/CE.RData')))
+tweets = searchTwitter("#ChennaiExpress", n=500, lang="en")
 tweets_txt = sapply(tweets,function(x) x$getText())
 
 #function to clean data
