@@ -65,6 +65,6 @@ posTerms <- c(afinn_list$word[afinn_list$score==3 | afinn_list$score==2 | afinn_
 vPosTerms <- c(afinn_list$word[afinn_list$score==5 | afinn_list$score==4], "uproarious", "riveting", "fascinating", "dazzling", "legendary")    
  
 #Calculate score on each tweet
-tweetResult <- as.data.frame(sentimentScore(tweets, vNegTerms, negTerms, posTerms, vPosTerms))
+tweetResult <- as.data.frame(sentimentScore(tweets_txt, vNegTerms, negTerms, posTerms, vPosTerms))
  
  
