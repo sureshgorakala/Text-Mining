@@ -1,5 +1,5 @@
 #include required libraries
-library(tm)
+library(plyr)
 library(twitteR)
 library(stringr)
 
@@ -7,7 +7,7 @@ library(stringr)
 #get the tweets
 #tweets = local(get(load('D:/SureshPersonal/Coursera/SentiAnalysis/Twitter/CE.RData')))
 tweets = searchTwitter("#ChennaiExpress", n=500, lang="en")
-tweets_txt = sapply(tweets,function(x) x$getText())
+tweets_txt = sapply(tweets[1:50],function(x) x$getText())
 
 #function to clean data
 cleanTweets = function(tweets)
@@ -28,11 +28,9 @@ sentimentScore <- function(sentences, vNegTerms, negTerms, posTerms, vPosTerms){
   final_scores <- matrix('', 0, 5)
   scores <- laply(sentences, function(sentence, vNegTerms, negTerms, posTerms, vPosTerms){
     initial_sentence <- sentence
-    #remove unnecessary characters and split up by word  
-    sentence <- tolower(sentence)
-	
-	#sentence = cleanTweets(sentence)
-	
+    #remove unnecessary characters and split up by word
+	sentence = cleanTweets(sentence)
+	sentence <- tolower(sentence)
 	wordList <- str_split(sentence, '\\s+')
     words <- unlist(wordList)
     #build vector with matches between sentence and each category
