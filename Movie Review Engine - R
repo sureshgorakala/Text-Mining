@@ -5,7 +5,7 @@ library(stringr)
 
 
 #get the tweets
-#tweets = local(get(load('D:/SureshPersonal/Coursera/SentiAnalysis/Twitter/CE.RData')))
+#tweets = local(get(load('CE.RData')))
 tweets = searchTwitter("#ChennaiExpress", n=500, lang="en")
 tweets_txt = sapply(tweets[1:50],function(x) x$getText())
 
@@ -54,7 +54,7 @@ sentimentScore <- function(sentences, vNegTerms, negTerms, posTerms, vPosTerms){
 
 
 #load pos,neg statements
-afinn_list <- read.delim(file='D:/SureshPersonal/Coursera/SentiAnalysis/AFINN/AFINN-111.txt', header=FALSE, stringsAsFactors=FALSE)
+afinn_list <- read.delim(file='AFINN-111.txt', header=FALSE, stringsAsFactors=FALSE)
 names(afinn_list) <- c('word', 'score')
 afinn_list$word <- tolower(afinn_list$word) 
 
