@@ -2,7 +2,7 @@
 print('***** import packages')
 import pandas as pd
 print('******read corpus *******************')
-data = pd.read_csv("/home/1060929/Suresh/Personal/RnD/ParaPhrasing/MSRParaphraseCorpus/msr_paraphrase_train.csv",sep = '\\t')
+data = pd.read_table("msr_paraphrase_train.txt",sep = '\\t')
 
 #print(data.shape)
 #print(type(data))
